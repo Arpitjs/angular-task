@@ -3,7 +3,7 @@ import {Routes, RouterModule } from '@angular/router'
 
 let routes: Routes = [
     { 
-        path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
+        path: '', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
     }
 ]
 @NgModule({

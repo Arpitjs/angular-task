@@ -10,6 +10,7 @@ import { APIService } from '../../services/api.service';
 export class ProductsComponent implements OnInit {
   product: any
   ratings = [1,2,3,4,5]
+
   constructor(
     private apiService: APIService,
     private activatedRoute: ActivatedRoute
@@ -20,10 +21,10 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.getProductInfo()
   }
+
   getProductInfo() {
     this.apiService.GetOneProductData(this.activatedRoute.snapshot.params.id)
-    .subscribe((response: any) => {
-      this.product = response
-    }, err => console.log(err))
+    .subscribe((response: any) => this.product = response, err => console.log(err))
   }
+  
 }

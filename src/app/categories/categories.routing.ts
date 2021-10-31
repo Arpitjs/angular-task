@@ -6,14 +6,13 @@ import { ProductsComponent } from './products/products.component';
 
 let routes: Routes = [
     {
-        path: '', component: DashboardComponent, children: [
-            {
-                path: 'all-categories', component: CategoriesComponent
-            },
-            {
-                path: 'product/:id', component: ProductsComponent
-            }
-        ]
+        path: '', component: DashboardComponent,
+    },
+    {
+        path: 'categories', component: CategoriesComponent
+    },
+    {
+        path: 'product/:id', component: ProductsComponent
     }
 ]
 
@@ -22,4 +21,4 @@ let routes: Routes = [
     exports: [RouterModule]
 })
 
-export class AppRoutingModule { }
+export class CategoryRoutingModule { }

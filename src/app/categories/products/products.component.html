@@ -8,39 +8,7 @@
                 <!-- Top Nav -->
 
                 <!-- Header -->
-                <div class="col-12 bg-white pt-4">
-                    <div class="row">
-                        <div class="col-lg-auto">
-                            <div class="site-logo text-center text-lg-left">
-                                <a routerLink="/">E-Commerce</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-                            <form action="#">
-                                <div class="mb-3">
-                                    <div class="input-group">
-                                        <input type="search" class="form-control border-dark" placeholder="Search..." required>
-                                        <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-auto text-center text-lg-left header-item-holder">
-                            <a href="#" class="header-item">
-                                <i class="fas fa-heart me-2"></i><span id="header-favorite">0</span>
-                            </a>
-                            <a href="cart.html" class="header-item">
-                                <i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">2</span>
-                                <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">{{product.price}}</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Nav -->
-                   <app-navbar></app-navbar>
-                    <!-- Nav -->
-
-                </div>
+                <app-header></app-header>
                 <!-- Header -->
 
             </header>
@@ -56,7 +24,7 @@
                         <div class="col-lg-5 col-md-12 mb-3">
                             <div class="col-12 mb-3">
                                 <div class="img-large border">
-                                    <img src="{{product.image}}" alt="product image" style="width:70%; height:400px;">
+                                    <img src="{{product.image}}" alt="product image"  style="width:70%; height:400px;">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -75,13 +43,7 @@
                                 <hr>
                             </div>
                             <div class="col-12">
-                                <!-- <ul>
-                                    <li>Processor 8th Generation Intel Core i9-8950HK (6-Core, 12MB Cache, Overclocking up to 5.0GHz)</li>
-                                    <li>Memory 32GB DDR4-2666MHz, 2x16GB Ram Speed Gaming Performance</li>
-                                    <li>Hard Drive 1TB SSD RAID 0 (2x 512GB PCIe NVME M.2 SSDs) + 1TB (+8GB SSHD) Hybrid Drive</li>
-                                    <li>17.3" Full HD display 1920 x 1080 resolution boasts impressive color and clarity. IPS technology for wide viewing angles.</li>
-                                    <li>Video Card NVIDIA® GeForce® RTX 2080 with 8GB GDDR6</li>
-                                </ul> -->
+                              
                             </div>
                         </div>
                         <!-- Product Info -->
@@ -225,11 +187,15 @@
                                                 <textarea class="form-control" placeholder="Give your review"></textarea>
                                             </div>
                                             <div class="mb-3">
-                                                <div class="d-flex ratings justify-content-end flex-row-reverse" *ngFor="let rating of ratings">
-                                                    <input type="radio" name="rating"> 
-                                                    <label for="rating-5" value="5" name="rating" id="rating-5" *ngIf="rating <= product.rating.rate"></label> 
-                                                    <input type="radio" name="rating" checked>
-                                                     <label for="rating-1" value="1" name="rating" id="rating-1" *ngIf="rating > product.rating.rate"></label> 
+                                                <div class="d-flex ratings justify-content-end flex-row-reverse" *ngFor="let rat of ratings">
+                                                   <div *ngIf="product.rating.rate <= rat"> 
+                                                    <input type="radio">
+                                                    <label for="rating-5"></label>
+                                                   </div>
+                                                   <div *ngIf="product.rating.rate > rat"> 
+                                                    <input type="radio" checked>
+                                                    <label for="rating-1"></label>
+                                                   </div>
                                                 </div>
                                             </div>
                                             <div class="mb-3">
@@ -261,19 +227,7 @@
                 </div>
 
                 <!-- Similar Product -->
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-12 py-3">
-                            <div class="row">
-                                <div class="col-12 text-center text-uppercase">
-                                    <h2>Similar Products</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              
                 <!-- Similar Products -->
 
             </main>
