@@ -10,7 +10,6 @@ import { APIService } from 'src/app/services/api.service';
 })
 
 export class CategoriesComponent implements OnInit {
-  isBottom = false
   names = []
   page = 1
   categories: any = []
@@ -26,22 +25,22 @@ export class CategoriesComponent implements OnInit {
   getProductsData() {
     this.apiService.GetProductData()
       .subscribe((response: any) => {
-        this.categories = response.slice(0,4)
+        this.categories = response.slice(0, 4)
         this.names = response.map((product: any) => product.title)
       },
         err => console.log(err))
   }
 
   onScroll() {
-    this.isBottom = true
     // console.log('SCROLLED') 
-    this.page ++
-    this.apiService.GetProductData()
-      .subscribe((response: any) => {
-        this.nextProducts = response.slice(this.page * 4 - 4, this.page * 4)
-        this.categories = [...this.categories, ...this.nextProducts]
-      },
-        err => console.log(err))
+    console.log(this.page)
+    this.page++
+      this.apiService.GetProductData()
+        .subscribe((response: any) => {
+          this.nextProducts = response.slice(this.page * 4 - 4, this.page * 4)
+          this.categories = [...this.categories, ...this.nextProducts]
+        },
+          err => console.log(err))
   }
 }
 
