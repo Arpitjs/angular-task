@@ -17,8 +17,8 @@
             </form>
            <div *ngIf="searchText">
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item" *ngFor="let n of names | appSearch: searchText">
-                  {{n}}
+                <li class="list-group-item" *ngFor="let n of products | appSearch: searchText">
+                  {{n.title}}
                 </li>
                 </ul>
            </div>

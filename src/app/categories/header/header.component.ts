@@ -6,7 +6,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit, OnChanges {
-  names = []
+  products = []
 @Input() inputData: any
 searchText = ''
   constructor() { }
@@ -15,7 +15,7 @@ searchText = ''
   }
   ngOnChanges() {
     // console.log('INPT', this.inputData)
-    this.names = this.inputData
+    this.products = this.inputData
   }
 
 }

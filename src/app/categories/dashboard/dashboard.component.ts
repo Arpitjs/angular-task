@@ -9,8 +9,8 @@ import { APIService } from '../../services/api.service';
 
 export class DashboardComponent implements OnInit {
   products: any = []
+  allProducts = []
   activeProduct: any = {}
-  names = []
   constructor(
     private apiService: APIService
   ) { }
@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     this.apiService.GetProductData()
     .subscribe((response: any)=> {
       this.activeProduct = response[0]
-      this.names = response.map((product: any) => product.title)
+      this.allProducts = response
       response.forEach((product: any, index: number) => {
         if(index < 4) {
           this.products.push(product)

@@ -1,5 +1,5 @@
 import {
-  Component, OnInit
+  Component, OnChanges, OnInit
 } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 
@@ -10,10 +10,10 @@ import { APIService } from 'src/app/services/api.service';
 })
 
 export class CategoriesComponent implements OnInit {
-  names = []
   page = 1
   categories: any = []
   nextProducts = []
+  allProducts = []
   searchText = ''
   constructor(
     private apiService: APIService
@@ -26,15 +26,15 @@ export class CategoriesComponent implements OnInit {
   getProductsData() {
     this.apiService.GetProductData()
       .subscribe((response: any) => {
+        this.allProducts = response
         this.categories = response.slice(0, 4)
-        this.names = response.map((product: any) => product.title)
       },
         err => console.log(err))
   }
 
   onScroll() {
     // console.log('SCROLLED') 
-    // console.log(this.page)
+    console.log(this.page)
     this.page++
       this.apiService.GetProductData()
         .subscribe((response: any) => {

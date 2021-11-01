@@ -42,7 +42,7 @@
         </div>
 
         <div class="col-12">
-            <main class="row">
+            <main class="row" *ngIf="!searchText">
 
                 <div class="col-12">
                     <div class="row">
@@ -54,7 +54,7 @@
                             </div>
 
                             <div class="row">
-                                <div *ngFor="let cat of categories | appSearch: searchText" class="item" style="width:300px; float:left;">
+                                <div *ngFor="let cat of categories" class="item" style="width:300px; float:left;">
                                     <div>
                                         <div>
                                             <div>
@@ -80,14 +80,62 @@
                                         </div>
                                     </div>
                              </div>
-                                    <br />
                                 </div>
+                                <!-- end of product -->
                             </div>
                         </div>
                     </div>
                 </div>
 
             </main>
+            <!-- here -->
+            <main class="row" *ngIf="searchText">
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 py-3">
+                            <div class="row">
+                                <div class="col-12 text-center text-uppercase">
+                                    <h2>Computers</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div *ngFor="let cat of allProducts | appSearch: searchText" class="item" style="width:300px; float:left;">
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <a href="product.html">
+                                                    <img src="{{cat.image}}" alt="x" class="img-fluid">
+                                                </a>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <a href="product.html" class="product-name">{{cat.title}}</a>
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <span class="product-price-old">
+
+                                                </span>
+                                                <br>
+                                                <span class="product-price">
+
+                                                </span>
+                                            </div>
+                                            <div class="col-12 mb-3 align-self-end">
+                                                <button class="btn btn-outline-dark" type="button"><i
+                                                        class="fas fa-cart-plus me-2"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                             </div>
+                                </div>
+                                <!-- end of product -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+            <!-- end here  -->
         </div>
         <div class="col-12 align-self-end">
             <app-footer></app-footer>
