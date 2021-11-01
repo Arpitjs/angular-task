@@ -14,6 +14,7 @@ export class CategoriesComponent implements OnInit {
   page = 1
   categories: any = []
   nextProducts = []
+  searchText = ''
   constructor(
     private apiService: APIService
   ) { }
@@ -33,7 +34,7 @@ export class CategoriesComponent implements OnInit {
 
   onScroll() {
     // console.log('SCROLLED') 
-    console.log(this.page)
+    // console.log(this.page)
     this.page++
       this.apiService.GetProductData()
         .subscribe((response: any) => {

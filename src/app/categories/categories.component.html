@@ -4,7 +4,39 @@
             <header class="row">
                 <app-top-nav></app-top-nav>
 
-                <app-header [inputData]="names"></app-header>
+                <div class="col-12 bg-white pt-4">
+                    <div class="row">
+                        <div class="col-lg-auto">
+                            <div class="site-logo text-center text-lg-left">
+                                <a routerLink="/">E-Commerce</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
+                            <form action="#">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="search" class="form-control border-dark" placeholder="Search..." name="searchText"
+                                        [(ngModel)]="searchText" required>
+                                        <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                         
+                        </div>
+                        <div class="col-lg-auto text-center text-lg-left header-item-holder">
+                            <a href="#" class="header-item">
+                                <i class="fas fa-heart me-2"></i><span id="header-favorite">0</span>
+                            </a>
+                            <a href="cart.html" class="header-item">
+                                <i class="fas fa-shopping-bag me-2"></i><span id="header-qty" class="me-3">2</span>
+                                <i class="fas fa-money-bill-wave me-2"></i><span id="header-price">$4,000</span>
+                            </a>
+                        </div>
+                    </div>
+                
+                    <app-navbar></app-navbar>
+                
+                </div> 
 
             </header>
         </div>
@@ -22,7 +54,7 @@
                             </div>
 
                             <div class="row">
-                                <div *ngFor="let cat of categories" class="item" style="width:300px; float:left;">
+                                <div *ngFor="let cat of categories | appSearch: searchText" class="item" style="width:300px; float:left;">
                                     <div>
                                         <div>
                                             <div>
